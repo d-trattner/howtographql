@@ -70,7 +70,6 @@ export class Link {
   id: string;
   description: string;
   url: string;
-  createdAt: string;
 }
 
 ```
@@ -306,8 +305,8 @@ export class LinkListComponent implements OnInit {
       query: ALL_LINKS_QUERY
     }).valueChanges.subscribe((response) => {
       // 5
-      this.allLinks = response.data.allLinks;
-      this.loading = response.data.loading;
+      this.allLinks = (response.data as any).allLinks;
+      this.loading = (response.data as any).loading;
      });
 
   }
