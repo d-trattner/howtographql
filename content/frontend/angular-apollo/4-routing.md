@@ -167,6 +167,12 @@ Open `src/app/create-link/create-link.component.ts` and update the `createLink` 
 
 ```ts(path=".../hackernews-angular-apollo/src/app/create-link/create-link.component.ts")
 // ...
+import {ALL_LINKS_QUERY, CREATE_LINK_MUTATION, CreateLinkMutationResponse} from '../graphql';
+import {Router} from '@angular/router';
+// ...
+constructor(private apollo: Apollo, private router: Router) {
+}
+// ...
 createLink() {
     this.apollo.mutate<CreateLinkMutationResponse>({
       mutation: CREATE_LINK_MUTATION,
