@@ -268,7 +268,7 @@ export class HeaderComponent implements OnInit {
     this.authService.isAuthenticated
       .distinctUntilChanged() // Only emit when the current value is different than the last
       .subscribe(isAuthenticated => {
-        this.logged = isAuthenticated
+        this.logged = isAuthenticated;
       });
 
   }
