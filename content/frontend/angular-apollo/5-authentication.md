@@ -21,6 +21,7 @@ Go ahead and run `ng generate component login` and this create `login.component.
 import {Component, OnInit} from '@angular/core';
 
 import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'hn-login',
