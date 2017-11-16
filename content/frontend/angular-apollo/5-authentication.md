@@ -20,6 +20,8 @@ Go ahead and run `ng generate component login` and this create `login.component.
 ```ts(path=".../hackernews-angular-apollo/src/app/login/login.component.ts")
 import {Component, OnInit} from '@angular/core';
 
+import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants';
+
 @Component({
   selector: 'hn-login',
   templateUrl: './login.component.html',
