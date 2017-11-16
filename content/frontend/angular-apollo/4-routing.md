@@ -21,25 +21,7 @@ Before you're moving on to configure the different routes for your application, 
 
 <Instruction>
 
-Go ahead and run `ng generate component header` and this create `header.component.ts` , `header.component.spec.ts`, `header.component.html`, `header.component.css` in `src/app/header` folder and add the following code in `header.component.ts`:
-
-```ts(path=".../hackernews-angular-apollo/src/app/header/header.component.ts")
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'hn-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
-})
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-```
+Go ahead and run `ng generate component header` and this create `header.component.ts` , `header.component.spec.ts`, `header.component.html`, `header.component.css` in `src/app/header`.
 </Instruction>
 
 <Instruction>
