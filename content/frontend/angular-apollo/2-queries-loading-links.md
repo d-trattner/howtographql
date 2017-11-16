@@ -52,27 +52,28 @@ export class LinkItemComponent implements OnInit {
 </Instruction>
 
 <Instruction>
+  
+Insert into `link-item.component.html`:
 ```html(path=".../hackernews-angular-apollo/src/app/link-item/link-item.component.html")
-
 <div>{{link.description}} ({{link.url}})</div>
-
 ```
+
 </Instruction>
 
 Note, we will be writing all our typings in a `./src/app/types.ts` file and merely importing these types into components as needed.
 
 <Instruction>
-
-This command will create a `link-item` folder containing several new files called `link-item.component.ts` , `link-item.component.spec.ts`, `link-item.component.html`, `link-item.component.css` in the `app` directory and add the following code in `link-item.component.ts`:
-
+  
+Add the Link type in `types.ts`, the `?` telling typescript, that these properties are optional, so that you can use a subset of these properties anywhere:
 ```ts(path=".../hackernews-angular-apollo/src/app/types.ts")
 export class Link {
-  id: string;
-  description: string;
-  url: string;
+  id?: string;
+  description?: string;
+  url?: string;
+  createdAt?: string;
 }
-
 ```
+
 </Instruction>
 
 
