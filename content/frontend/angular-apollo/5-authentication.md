@@ -591,6 +591,27 @@ Perfect, you're all set now to actually implement the authentication functionali
 `createUser` and `signinUser` are two regular GraphQL mutations that you can use in the same way as you did with the `createLink` mutation from before.
 
 <Instruction>
+  
+Open `src/app/types.ts` and make the types look like this:
+```ts(path=".../hackernews-angular-apollo/src/app/types.ts")
+export class Link {
+    id?: string;
+    description?: string;
+    url?: string;
+    createdAt?: string;
+    postedBy?: User;
+  }
+
+export class User {
+    id?: string;
+    name?: string;
+    email?: string;
+}
+```
+
+</Instruction>
+
+<Instruction>
 
 Open `src/app/graphql.ts` and add the following two definitions to the file:
 
@@ -647,7 +668,7 @@ export const SIGNIN_USER_MUTATION = gql`
 `;
 
 
-export interface CreateUserMutationResponse {
+export interface SigninUserMutationResponse {
   loading: boolean;
   signinUser: {
     token: string,
@@ -671,6 +692,16 @@ All right, all that's left to do is to call the two mutations inside the `Login`
 Open `src/app/login/login.component.ts` and implement `confirm` as follows:
 
 ```ts(path=".../hackernews-angular-apollo/src/app/login/login.component.ts")
+// ...
+import {Apollo} from 'apollo-angular';
+import {Router} from '@angular/router';
+import {
+  CREATE_USER_MUTATION,
+  CreateUserMutationResponse,
+  SIGNIN_USER_MUTATION,
+  SigninUserMutationResponse
+} from '../graphql';
+
 // ...
   login: boolean = true; // switch between Login and SignUp
   email: string = '';
@@ -731,21 +762,6 @@ Open `src/app/login/login.component.ts` and implement `confirm` as follows:
 
 The code is pretty straightforward. If the user wants to only login, you're calling the `SIGNIN_USER_MUTATION` and pass the provided `email` and `password` as arguments. Otherwise, you're using the `CREATE_USER_MUTATION` where you also pass the user's `name`. After the mutation is performed, you are calling the `authService` that will take care of storing the data and navigating back to the root route.
 
-<Instruction>
-
-Also import the `CREATE_USER_MUTATION` and `SIGNIN_USER_MUTATION` constants and response interface near top of the component:
-
-```ts(path=".../hackernews-angular-apollo/src/app/login/login.component.ts")
-import {
-  CREATE_USER_MUTATION,
-  CreateUserMutationResponse,
-  SIGNIN_USER_MUTATION,
-  SigninUserMutationResponse
-} from '../graphql';
-```
-
-</Instruction>
-
 You now need to make a couple more changes to `src/app/app.component.ts` to get things working.
 
 <Instruction>
@@ -763,6 +779,7 @@ import {AuthService} from './auth.service';
 Still in `src/app/app.component.ts` make the following change :
 
 ```ts{1-2,9-12}(path=".../hackernews-apollo-apollo/src/app/app.component.ts")
+import { Component, OnInit } from '@angular/core';
 // ...
 export class AppComponent implements OnInit {
   title = 'app';
