@@ -229,16 +229,17 @@ Let's take a close look again to understand what's going on:
 7. Now, you provide the `logout` method to log out the user by removing user data from local storage,  the service and dispatching to all listeners that the user is not authenticated
 7. In the end, you declare the `autoLogin` method to log the user automatically if a token is already stored in the localStorage.
 
-Note, don't forgot to inject `AuthService` in `app.module.ts`:
-
 </Instruction>
 <Instruction>
-```ts{31-33}(path=".../hackernews-angular-apollo/src/app/app.module.ts")
+  
+Note, don't forgot to inject `AuthService` in `app.module.ts`:
+```ts(path=".../hackernews-angular-apollo/src/app/app.module.ts")
+// ...
 providers: [
     AuthService
 ],
+// ...
 ```
-
 </Instruction>
 
 
