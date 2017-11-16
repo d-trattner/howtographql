@@ -128,6 +128,10 @@ Before moving on, you need to import the mutation from the `graphql` file and th
 ```ts(path=".../hackernews-angular-apollo/src/app/create-link/create-link.component.ts")
 import {Apollo} from 'apollo-angular';
 import {CREATE_LINK_MUTATION, CreateLinkMutationResponse} from '../graphql';
+...
+...
+constructor(private apollo: Apollo) {
+  }
 ```
 
 </Instruction>
