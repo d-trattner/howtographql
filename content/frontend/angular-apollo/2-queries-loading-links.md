@@ -65,7 +65,7 @@ Note, we will be writing all our typings in a `./src/app/types.ts` file and mere
 
 This command will create a `link-item` folder containing several new files called `link-item.component.ts` , `link-item.component.spec.ts`, `link-item.component.html`, `link-item.component.css` in the `app` directory and add the following code in `link-item.component.ts`:
 
-```ts(path=".../hackernews-angular-apollo/src/app/type.ts")
+```ts(path=".../hackernews-angular-apollo/src/app/types.ts")
 export class Link {
   id: string;
   description: string;
@@ -168,7 +168,7 @@ export class AppModule {
 Then, open `app.component.html` and replace the current contents with the following:
 
 ```html(path=".../hackernews-angular-apollo/src/app/app.component.html")
-  <hn-link-list></hn-link-item-list>
+  <hn-link-list></hn-link-list>
 ```
 
 </Instruction>
