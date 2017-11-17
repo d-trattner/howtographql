@@ -800,7 +800,6 @@ export class AppComponent implements OnInit {
 
 1. You inject the `authService`
 2. You try to log in automatically
-2. You set this `userId` on the `$root` `$data` object
 
 
 You can now create an account by providing a `name`, `email` and `password`. Once you do so, the _submit_-button will be rendered again:
